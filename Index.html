@@ -10,7 +10,7 @@
   <body>
 
     <!-- Navigation start -->
-    <nav>
+    <nav id="nav">
       <div class="navTitle">
         <h1><a href="Index.html">FAQ page</a></h1>
       </div>
@@ -75,6 +75,25 @@
   <!-- Not sure how you do this in PHP but in react id map with div with a unique ID -->
   <div id="variable2" class="Answer">Answer</div>
 </div>
+
+<div class="FaqContainer"> 
+  <div class="Question">
+    <h2>Question: Question from DB 3</h2>
+    <!-- This function parameter would have the unique ID -->
+    <img  class="plusSVG" src="plus.svg" id="variable3plus" onclick="ToggleOpen('variable3')"></img>
+  </div>
+  <!-- Not sure how you do this in PHP but in react id map with div with a unique ID -->
+  <div id="variable3" class="Answer">Answer</div>
+</div>
+<div class="FaqContainer"> 
+  <div class="Question">
+    <h2>Question: Question from DB 4</h2>
+    <!-- This function parameter would have the unique ID -->
+    <img  class="plusSVG" src="plus.svg" id="variable4plus" onclick="ToggleOpen('variable4')"></img>
+  </div>
+  <!-- Not sure how you do this in PHP but in react id map with div with a unique ID -->
+  <div id="variable4" class="Answer">Answer</div>
+</div>
 </div>
 
 
@@ -85,6 +104,17 @@
       document.getElementById(param).classList.toggle('opened');
       document.getElementById(param+'plus').classList.toggle('turn');
     }
+    document.addEventListener('scroll', function() {
+      const windowPos = window.scrollY;
+      const navbar = document.getElementById('nav');
+
+      if(windowPos > 5) {
+        navbar.classList.add('scrolled');
+      }
+      if (windowPos < 5) {
+        navbar.classList.remove('scrolled');
+      }
+    })
   </script>
   </body>
 
