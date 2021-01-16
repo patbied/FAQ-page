@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <title>FAQ</title>
+  </head>
+  <body>
+
+    <!-- Navigation start -->
+    <nav>
+      <div class="navTitle">
+        <h1><a href="Index.html">FAQ page</a></h1>
+      </div>
+      <div class="navItems">
+        
+          <a href="#">No framework navbar</a></li>
+        <a href="#">Some link here?</a></li>
+        
+      </div>
+    </nav>
+    <!-- End of navigation -->
+
+    <!-- Flex container for the search box -->
+    <div class="SearchBox">
+      <h1 >Search for questions here</h1>
+      <input list="askedQuestionsList" id="askedQuestions" name="askedQuestions" autocomplete="off" />
+      <datalist  id="askedQuestionsList">
+        <option value="Some topic">
+        <option value="Something else">
+        <option value="I assume you will automatically generate these">
+        <option value="by iterating through search queries in the DB">
+          <option value="Some topic">
+            <option value="Something else">
+            <option value="I assume you will automatically generate these">
+            <option value="by iterating through search queries in the DB">
+              <option value="Some topic">
+                <option value="Something else">
+                <option value="I assume you will automatically generate these">
+                <option value="by iterating through search queries in the DB">
+                   <option value="Some topic">
+        <option value="Something else">
+        <option value="I assume you will automatically generate these">
+        <option value="by iterating through search queries in the DB">
+          <option value="Some topic">
+            <option value="Something else">
+            <option value="I assume you will automatically generate these">
+            <option value="by iterating through search queries in the DB">
+               <option value="Some topic">
+    <option value="Something else">
+    <option value="I assume you will automatically generate these">
+    <option value="by iterating through search queries in the DB">
+    </datalist>
+    </div>
+ 
+
+  <div class="ParentContainer"> 
+  <div class="FaqContainer"> 
+  <div class="Question">
+    <h2>Question: Question from DB</h2>
+    <!-- This function parameter would have the unique ID -->
+    <img class="plusSVG" src="plus.svg" id="variable1plus" onclick="ToggleOpen('variable1')"></img>
+  </div>
+  <!-- Not sure how you do this in PHP but in react id map with div with a unique ID -->
+  <div id="variable1" class="Answer">Answer</div>
+</div>
+  <div class="FaqContainer"> 
+  <div class="Question">
+    <h2>Question: Question from DB 2</h2>
+    <!-- This function parameter would have the unique ID -->
+    <img  class="plusSVG" src="plus.svg" id="variable2plus" onclick="ToggleOpen('variable2')"></img>
+  </div>
+  <!-- Not sure how you do this in PHP but in react id map with div with a unique ID -->
+  <div id="variable2" class="Answer">Answer</div>
+</div>
+</div>
+
+
+  <!-- End of container -->
+  <script>
+    function ToggleOpen(param) {
+   
+      document.getElementById(param).classList.toggle('opened');
+      document.getElementById(param+'plus').classList.toggle('turn');
+    }
+  </script>
+  </body>
+
+</html>
