@@ -180,11 +180,14 @@ datalist {
   width: 25px;
   -webkit-transition: 200ms;
   transition: 200ms;
+  background-color: none;
+  border-radius: 100px;
 }
 
 .plusSVG.turn {
   -webkit-transform: rotate(135deg);
           transform: rotate(135deg);
+  background-color: red;
 }
 
 body {

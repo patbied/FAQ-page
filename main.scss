@@ -131,9 +131,12 @@ datalist {
   height: 25px;
   width: 25px;
   transition: 200ms;
+  background-color: none;
+  border-radius: 100px;
 }
 .plusSVG.turn {
   transform: rotate(135deg);
+  background-color: red;
 }
 body {
   height: 200vh;
