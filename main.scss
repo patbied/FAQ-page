@@ -107,15 +107,17 @@ nav {
       color: gray;
       opacity: 0.5;
       pointer-events: none;
-      transition: 200ms;
+      transition: transform 200ms, font-size 200ms;
     }
     #askedQuestions:focus + span::after {
-      transform: translatey(-30px);
+      transform: translatey(-30px) translateX(-10px);
+
       font-size: 10px;
-      opacity: 0;
+      color: orange;
     }
     input:not(:placeholder-shown) + span::after {
-      opacity: 0;
+      color: orange;
+      font-size: 10px;
     }
   }
 }

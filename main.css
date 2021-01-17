@@ -138,19 +138,22 @@ nav .navItems a {
   color: gray;
   opacity: 0.5;
   pointer-events: none;
-  -webkit-transition: 200ms;
-  transition: 200ms;
+  -webkit-transition: font-size 200ms, -webkit-transform 200ms;
+  transition: font-size 200ms, -webkit-transform 200ms;
+  transition: transform 200ms, font-size 200ms;
+  transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
 }
 
 .SearchBox .InputParent #askedQuestions:focus + span::after {
-  -webkit-transform: translatey(-30px);
-          transform: translatey(-30px);
+  -webkit-transform: translatey(-30px) translateX(-10px);
+          transform: translatey(-30px) translateX(-10px);
   font-size: 10px;
-  opacity: 0;
+  color: orange;
 }
 
 .SearchBox .InputParent input:not(:placeholder-shown) + span::after {
-  opacity: 0;
+  color: orange;
+  font-size: 10px;
 }
 
 datalist {
