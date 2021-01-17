@@ -10,6 +10,7 @@ nav.scrolled {
 }
 
 nav {
+  z-index: 999;
   height: 10vh;
   background-color: orange;
   width: 100%;
@@ -115,12 +116,41 @@ nav .navItems a {
   border-radius: 5px;
   border: 1px solid gray;
   font-family: 'Lato', sans-serif;
+  padding-left: 10px;
 }
 
 .SearchBox #askedQuestions:focus {
   outline: none;
   border: 1px solid orange;
   padding-left: 10px;
+}
+
+.SearchBox .InputParent {
+  z-index: 1;
+  position: relative;
+}
+
+.SearchBox .InputParent span::after {
+  position: absolute;
+  content: 'What is...';
+  left: 10;
+  bottom: 10;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.SearchBox .InputParent #askedQuestions:focus + span::after {
+  -webkit-transform: translatey(-30px);
+          transform: translatey(-30px);
+  font-size: 10px;
+  opacity: 0;
+}
+
+.SearchBox .InputParent input:not(:placeholder-shown) + span::after {
+  opacity: 0;
 }
 
 datalist {
@@ -185,16 +215,32 @@ datalist {
   -webkit-transition: 200ms;
   transition: 200ms;
   background-color: none;
-  border-radius: 100px;
 }
 
 .plusSVG.turn {
   -webkit-transform: rotate(135deg);
           transform: rotate(135deg);
-  background-color: red;
 }
 
 body {
   height: 200vh;
+}
+
+*::-moz-selection {
+  background: orange;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+
+*::selection {
+  background: orange;
+  /* WebKit/Blink Browsers */
+  color: white;
+}
+
+::-moz-selection {
+  background: orange;
+  /* Gecko Browsers */
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */

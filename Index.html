@@ -26,7 +26,10 @@
     <!-- Flex container for the search box -->
     <div class="SearchBox">
       <h1 >Search for questions here</h1>
-      <input list="askedQuestionsList" id="askedQuestions" name="askedQuestions" autocomplete="off" />
+    <div class="InputParent">
+      <input placeholder=" " required list="askedQuestionsList" id="askedQuestions" name="askedQuestions" autocomplete="off" /> 
+      <span></span>
+    </div> 
       <datalist  id="askedQuestionsList">
         <option value="Some topic">
         <option value="Something else">

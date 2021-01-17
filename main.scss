@@ -6,6 +6,7 @@ nav.scrolled {
   transition: box-shadow 200ms;
 }
 nav {
+  z-index: 999;
   height: 10vh;
   background-color: orange;
   width: 100%;
@@ -46,9 +47,7 @@ nav {
     left: 0;
     bottom: -5;
   }
-  a:hover {
-    // color: #6599ff;
-  }
+
   a:hover::after {
     width: 100%;
     opacity: 100;
@@ -86,13 +85,38 @@ nav {
     border-radius: 5px;
     border: 1px solid gray;
     font-family: 'Lato', sans-serif;
+    padding-left: 10px;
   }
+
   #askedQuestions:focus {
     outline: none;
+
     // -webkit-box-shadow: 0px 0px 15px 2px rgba(128, 93, 147, 0.48);
     // box-shadow: 0px 0px 15px 2px rgba(128, 93, 147, 0.48);
     border: 1px solid orange;
     padding-left: 10px;
+  }
+  .InputParent {
+    z-index: 1;
+    position: relative;
+    span::after {
+      position: absolute;
+      content: 'What is...';
+      left: 10;
+      bottom: 10;
+      color: gray;
+      opacity: 0.5;
+      pointer-events: none;
+      transition: 200ms;
+    }
+    #askedQuestions:focus + span::after {
+      transform: translatey(-30px);
+      font-size: 10px;
+      opacity: 0;
+    }
+    input:not(:placeholder-shown) + span::after {
+      opacity: 0;
+    }
   }
 }
 datalist {
@@ -137,12 +161,18 @@ datalist {
   width: 25px;
   transition: 200ms;
   background-color: none;
-  border-radius: 100px;
 }
 .plusSVG.turn {
   transform: rotate(135deg);
-  background-color: red;
 }
 body {
   height: 200vh;
+}
+*::selection {
+  background: orange; /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: orange; /* Gecko Browsers */
+  color: white;
 }
