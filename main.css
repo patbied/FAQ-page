@@ -160,7 +160,7 @@ nav .navItems a {
   position: absolute;
   content: 'Search for...';
   left: 10;
-  bottom: 10;
+  top: 10;
   color: gray;
   opacity: 0.5;
   pointer-events: none;
@@ -485,5 +485,46 @@ input:valid {
   transition: font-size 200ms, -webkit-transform 200ms;
   transition: transform 200ms, font-size 200ms;
   transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
+}
+
+.approveUsers {
+  border: 2px solid #0019d6;
+  width: 90%;
+  height: 50vh;
+  text-align: center;
+  overflow: scroll;
+}
+
+.marginTop {
+  margin-top: 10vh;
+}
+
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  outline: 2px solid #0019d6;
+  color: #0019d6;
+  text-align: left;
+}
+
+tr button {
+  width: 49%;
+}
+
+.approve:hover {
+  background-color: green;
+  color: white;
+}
+
+.deny:hover {
+  background-color: red;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */

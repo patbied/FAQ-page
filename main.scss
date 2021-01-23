@@ -125,7 +125,7 @@ nav {
       position: absolute;
       content: 'Search for...';
       left: 10;
-      bottom: 10;
+      top: 10;
       color: gray;
       opacity: 0.5;
       pointer-events: none;
@@ -362,4 +362,38 @@ input:valid {
   opacity: 0.5;
   pointer-events: none;
   transition: transform 200ms, font-size 200ms;
+}
+.approveUsers {
+  border: 2px solid $backgroundColor;
+  width: 90%;
+  height: 50vh;
+  text-align: center;
+  overflow: scroll;
+}
+.marginTop {
+  margin-top: 10vh;
+}
+td {
+  padding: 8px;
+  text-align: left;
+}
+table {
+  width: 100%;
+}
+
+tr {
+  outline: 2px solid $backgroundColor;
+  color: $backgroundColor;
+  text-align: left;
+  button {
+    width: 49%;
+  }
+}
+.approve:hover {
+  background-color: green;
+  color: white;
+}
+.deny:hover {
+  background-color: red;
+  color: white;
 }
