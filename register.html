@@ -1,0 +1,62 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <title>Register</title>
+  </head>
+  <body>
+
+    <!-- Navigation start -->
+    <nav id="nav">
+      <div class="navTitle">
+        <h1><a  href="Index.html">ASW FAQ page</a></h1>
+      </div>
+      <div class="navItems">
+        
+          <a href="/askQuestion.html">Ask a question</a>
+          <a href="/login.html">Login</a>
+          <a class="active" href="/register.html">Register</a>
+          <a  href="/adminView.html">Admin panel</a>
+   
+        
+      </div>
+    </nav>
+
+    <div class="ParentContainer paddingTop">
+      <div class="formBox">
+        <h2>Register</h2>
+        <form>
+           <div class="relative"> 
+          <input required placeholder=" " type="text" name="firstname" id="firstname">
+          <span id="firstnameAfter"></span>
+         </div>
+
+         <div class="relative"> 
+          <input required placeholder=" "  type="text" name="lastname" id="lastname">
+          <span id="lastnameAfter"></span>
+         </div>
+          
+         <div class="relative">
+          <input required placeholder=" "  type="email" name="email" id="email">
+          <span id="emailAfter"></span>
+          </div>
+          <div class="relative">
+            <input required placeholder=" "  type="text" name="username" id="username">
+            <span id="usernameAfter"></span>
+            </div>
+            <div class="relative">
+              <input required placeholder=" "  type="password" name="password" id="password">
+              <span id="passwordAfter"></span>
+              </div>
+          <div> 
+          <button class="button">Register</button>
+        </div>
+        <span>Or <a class="highlight" href="Login.html">Login</a></span>
+        </form>
+      </div>
+    </div>
+    </body>
+    </html>

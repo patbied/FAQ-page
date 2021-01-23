@@ -1,14 +1,16 @@
+$primaryColor: #444;
+$backgroundColor: #0019d6;
 nav.scrolled {
   -webkit-box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 0.3);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transition: box-shadow 200ms;
+  transition: box-shadow 200ms, height 200ms;
 }
 nav {
   z-index: 999;
   height: 10vh;
-  background-color: orange;
+  background-color: $backgroundColor;
   width: 100%;
   display: flex;
   align-items: center;
@@ -21,7 +23,8 @@ nav {
   border-bottom: black 1px solid;
   transition: box-shadow 200ms;
   a {
-    color: white;
+    color: rgb(219, 219, 219);
+
     position: relative;
     text-decoration: none;
     transition: 200ms;
@@ -31,6 +34,27 @@ nav {
   }
   li {
     position: relative;
+  }
+  a:hover {
+    color: white;
+  }
+  a.active {
+    color: white;
+  }
+  a.active::after {
+    content: '';
+    background-color: white;
+    width: 100%;
+    height: 5px;
+    z-index: 999;
+    opacity: 1;
+    position: absolute;
+    transition: 200ms;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+    left: 0;
+    bottom: -5;
   }
   a::after {
     content: '';
@@ -50,7 +74,7 @@ nav {
 
   a:hover::after {
     width: 100%;
-    opacity: 100;
+    opacity: 1;
   }
   .navTitle {
     padding-left: 10px;
@@ -80,10 +104,10 @@ nav {
   }
   #askedQuestions {
     height: 5vh;
-    width: 25vw;
+    width: 39vw;
     font-size: 100%;
     border-radius: 5px;
-    border: 1px solid gray;
+    border: 1px solid $primaryColor;
     font-family: 'Lato', sans-serif;
     padding-left: 10px;
   }
@@ -91,9 +115,7 @@ nav {
   #askedQuestions:focus {
     outline: none;
 
-    // -webkit-box-shadow: 0px 0px 15px 2px rgba(128, 93, 147, 0.48);
-    // box-shadow: 0px 0px 15px 2px rgba(128, 93, 147, 0.48);
-    border: 1px solid orange;
+    border: 1px solid $backgroundColor;
     padding-left: 10px;
   }
   .InputParent {
@@ -101,7 +123,7 @@ nav {
     position: relative;
     span::after {
       position: absolute;
-      content: 'What is...';
+      content: 'Search for...';
       left: 10;
       bottom: 10;
       color: gray;
@@ -112,12 +134,17 @@ nav {
     #askedQuestions:focus + span::after {
       transform: translatey(-30px) translateX(-10px);
 
-      font-size: 10px;
-      color: orange;
+      font-size: 13px;
+      color: $backgroundColor;
     }
     input:not(:placeholder-shown) + span::after {
-      color: orange;
-      font-size: 10px;
+      color: $backgroundColor;
+      font-size: 13px;
+      transform: translatey(-30px) translateX(-10px);
+    }
+    input:not(:placeholder-shown) {
+      border: 1px solid $backgroundColor;
+      font-size: 13px;
     }
   }
 }
@@ -137,7 +164,7 @@ datalist {
 }
 .FaqContainer:hover {
   h2 {
-    text-decoration: underline orange 2px;
+    text-decoration: underline $backgroundColor 2px;
   }
 }
 .FaqContainer {
@@ -171,10 +198,168 @@ body {
   height: 200vh;
 }
 *::selection {
-  background: orange; /* WebKit/Blink Browsers */
+  background: $backgroundColor; /* WebKit/Blink Browsers */
   color: white;
 }
 ::-moz-selection {
-  background: orange; /* Gecko Browsers */
+  background: $backgroundColor; /* Gecko Browsers */
   color: white;
+}
+.SearchBoxForm {
+  display: flex;
+  width: 50%;
+}
+.searchBoxButton {
+  margin-left: 10px;
+  background-color: transparent;
+  width: 150px;
+  border: 2px solid $backgroundColor;
+  border-radius: 5px;
+  transition: 200ms;
+  cursor: pointer;
+}
+.searchBoxButton:hover {
+  background-color: $backgroundColor;
+  color: white;
+}
+button {
+  background-color: transparent;
+  width: 150px;
+  height: 50px;
+  border: 2px solid $backgroundColor;
+  border-radius: 5px;
+  transition: 200ms;
+  cursor: pointer;
+}
+button:hover {
+  background-color: $backgroundColor;
+  color: white;
+}
+.showResults {
+  width: 50%;
+  padding-bottom: 5px;
+}
+.paddingTop {
+  padding-top: 10vh;
+}
+.formBox {
+  border: 2px solid $backgroundColor;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 5vh 0vh 5vh 0vh;
+  width: 30vw;
+  input {
+    margin: 20px 0px 10px 0px;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid $primaryColor;
+    height: 30px;
+  }
+}
+input:focus {
+  outline: none;
+
+  padding-left: 10px;
+}
+
+.relative {
+  position: relative;
+}
+#firstname:focus + span::after {
+  transform: translatey(-20px) translateX(-5px);
+
+  font-size: 13px;
+  color: $backgroundColor;
+}
+#firstnameAfter::after {
+  position: absolute;
+  content: 'Firstname...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: transform 200ms, font-size 200ms;
+}
+#lastname:focus + span::after {
+  transform: translatey(-20px) translateX(-5px);
+
+  font-size: 13px;
+  color: $backgroundColor;
+}
+#lastnameAfter::after {
+  position: absolute;
+  content: 'Lastname...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: transform 200ms, font-size 200ms;
+}
+#email:focus + span::after {
+  transform: translatey(-20px) translateX(-5px);
+
+  font-size: 13px;
+  color: $backgroundColor;
+}
+#emailAfter::after {
+  position: absolute;
+  content: 'Email...';
+  top: 22;
+  left: 8;
+
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: transform 200ms, font-size 200ms;
+}
+input:not(:placeholder-shown) + span::after {
+  color: $backgroundColor;
+  font-size: 13px;
+  transform: translatey(-20px) translateX(-5px);
+}
+input:valid {
+  border: 1px solid $backgroundColor;
+}
+.highlight {
+  text-decoration: underline 1px solid $backgroundColor;
+  color: $backgroundColor;
+}
+
+#username:focus + span::after {
+  transform: translatey(-20px) translateX(-5px);
+
+  font-size: 13px;
+  color: $backgroundColor;
+}
+#usernameAfter::after {
+  position: absolute;
+  content: 'Username...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: transform 200ms, font-size 200ms;
+}
+#password:focus + span::after {
+  transform: translatey(-20px) translateX(-5px);
+
+  font-size: 13px;
+  color: $backgroundColor;
+}
+#passwordAfter::after {
+  position: absolute;
+  content: 'Password...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: transform 200ms, font-size 200ms;
 }

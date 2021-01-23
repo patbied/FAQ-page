@@ -5,19 +5,22 @@
     <link rel="stylesheet" href="main.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-    <title>FAQ</title>
+    <title>ASW FAQ</title>
   </head>
   <body>
 
     <!-- Navigation start -->
     <nav id="nav">
       <div class="navTitle">
-        <h1><a href="Index.html">FAQ page</a></h1>
+        <h1><a class="active" href="Index.html">ASW FAQ page</a></h1>
       </div>
       <div class="navItems">
         
-          <a href="#">No framework navbar</a></li>
-        <a href="#">Some link here?</a></li>
+          <a href="/askQuestion.html">Ask a question</a>
+          <a href="/login.html">Login</a>
+          <a href="/register.html">Register</a>
+          <a  href="/adminView.html">Admin panel</a>
+   
         
       </div>
     </nav>
@@ -25,11 +28,16 @@
 
     <!-- Flex container for the search box -->
     <div class="SearchBox">
-      <h1 >Search for questions here</h1>
+      <form novalidate class="SearchBoxForm" action="#">
     <div class="InputParent">
-      <input placeholder=" " required list="askedQuestionsList" id="askedQuestions" name="askedQuestions" autocomplete="off" /> 
+      <input  onsubmit="GrabValue()" placeholder=" " required list="askedQuestionsList" id="askedQuestions" name="askedQuestions" autocomplete="off" /> 
       <span></span>
-    </div> 
+    </div>
+    <button  class="searchBoxButton" >Search</button> 
+
+  </form>
+  <!-- <div class="expandCategory" id="expand">Sort by </div>  -->
+</div>
       <datalist  id="askedQuestionsList">
         <option value="Some topic">
         <option value="Something else">
@@ -60,6 +68,9 @@
  
 
   <div class="ParentContainer"> 
+    <div class="showResults">
+      <h2>Showing results for: </h2>
+    </div>
   <div class="FaqContainer"> 
   <div class="Question">
     <h2>Question: Question from DB</h2>
@@ -85,8 +96,15 @@
 </div>
 
 
-  <!-- End of container -->
+  
   <script>
+    function GrabValue() {
+      var searchTerm = document.getElementById("askedQuestions").value;
+      console.log(searchTerm);
+      console.log("submitted");
+      
+      
+    }
     function ToggleOpen(param) {
    
       document.getElementById(param).classList.toggle('opened');
@@ -96,10 +114,10 @@
       const windowPos = window.scrollY;
       const navbar = document.getElementById('nav');
 
-      if(windowPos > 5) {
+      if(windowPos >= 5) {
         navbar.classList.add('scrolled');
       }
-      if (windowPos < 5) {
+      if (windowPos <= 5) {
         navbar.classList.remove('scrolled');
       }
     })

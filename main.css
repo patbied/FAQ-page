@@ -3,16 +3,16 @@ nav.scrolled {
   box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 0.3);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transition: -webkit-box-shadow 200ms;
-  transition: -webkit-box-shadow 200ms;
-  transition: box-shadow 200ms;
-  transition: box-shadow 200ms, -webkit-box-shadow 200ms;
+  -webkit-transition: height 200ms, -webkit-box-shadow 200ms;
+  transition: height 200ms, -webkit-box-shadow 200ms;
+  transition: box-shadow 200ms, height 200ms;
+  transition: box-shadow 200ms, height 200ms, -webkit-box-shadow 200ms;
 }
 
 nav {
   z-index: 999;
   height: 10vh;
-  background-color: orange;
+  background-color: #0019d6;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,7 +34,7 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: #dbdbdb;
   position: relative;
   text-decoration: none;
   -webkit-transition: 200ms;
@@ -47,6 +47,32 @@ nav a {
 
 nav li {
   position: relative;
+}
+
+nav a:hover {
+  color: white;
+}
+
+nav a.active {
+  color: white;
+}
+
+nav a.active::after {
+  content: '';
+  background-color: white;
+  width: 100%;
+  height: 5px;
+  z-index: 999;
+  opacity: 1;
+  position: absolute;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  left: 0;
+  bottom: -5;
 }
 
 nav a::after {
@@ -69,7 +95,7 @@ nav a::after {
 
 nav a:hover::after {
   width: 100%;
-  opacity: 100;
+  opacity: 1;
 }
 
 nav .navTitle {
@@ -111,17 +137,17 @@ nav .navItems a {
 
 .SearchBox #askedQuestions {
   height: 5vh;
-  width: 25vw;
+  width: 39vw;
   font-size: 100%;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid #444;
   font-family: 'Lato', sans-serif;
   padding-left: 10px;
 }
 
 .SearchBox #askedQuestions:focus {
   outline: none;
-  border: 1px solid orange;
+  border: 1px solid #0019d6;
   padding-left: 10px;
 }
 
@@ -132,7 +158,7 @@ nav .navItems a {
 
 .SearchBox .InputParent span::after {
   position: absolute;
-  content: 'What is...';
+  content: 'Search for...';
   left: 10;
   bottom: 10;
   color: gray;
@@ -147,13 +173,20 @@ nav .navItems a {
 .SearchBox .InputParent #askedQuestions:focus + span::after {
   -webkit-transform: translatey(-30px) translateX(-10px);
           transform: translatey(-30px) translateX(-10px);
-  font-size: 10px;
-  color: orange;
+  font-size: 13px;
+  color: #0019d6;
 }
 
 .SearchBox .InputParent input:not(:placeholder-shown) + span::after {
-  color: orange;
-  font-size: 10px;
+  color: #0019d6;
+  font-size: 13px;
+  -webkit-transform: translatey(-30px) translateX(-10px);
+          transform: translatey(-30px) translateX(-10px);
+}
+
+.SearchBox .InputParent input:not(:placeholder-shown) {
+  border: 1px solid #0019d6;
+  font-size: 13px;
 }
 
 datalist {
@@ -182,8 +215,8 @@ datalist {
 }
 
 .FaqContainer:hover h2 {
-  -webkit-text-decoration: underline orange 2px;
-          text-decoration: underline orange 2px;
+  -webkit-text-decoration: underline #0019d6 2px;
+          text-decoration: underline #0019d6 2px;
 }
 
 .FaqContainer {
@@ -230,20 +263,227 @@ body {
 }
 
 *::-moz-selection {
-  background: orange;
+  background: #0019d6;
   /* WebKit/Blink Browsers */
   color: white;
 }
 
 *::selection {
-  background: orange;
+  background: #0019d6;
   /* WebKit/Blink Browsers */
   color: white;
 }
 
 ::-moz-selection {
-  background: orange;
+  background: #0019d6;
   /* Gecko Browsers */
   color: white;
+}
+
+.SearchBoxForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+}
+
+.searchBoxButton {
+  margin-left: 10px;
+  background-color: transparent;
+  width: 150px;
+  border: 2px solid #0019d6;
+  border-radius: 5px;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.searchBoxButton:hover {
+  background-color: #0019d6;
+  color: white;
+}
+
+button {
+  background-color: transparent;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #0019d6;
+  border-radius: 5px;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0019d6;
+  color: white;
+}
+
+.showResults {
+  width: 50%;
+  padding-bottom: 5px;
+}
+
+.paddingTop {
+  padding-top: 10vh;
+}
+
+.formBox {
+  border: 2px solid #0019d6;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 5vh 0vh 5vh 0vh;
+  width: 30vw;
+}
+
+.formBox input {
+  margin: 20px 0px 10px 0px;
+  outline: none;
+  padding-left: 10px;
+  border: 1px solid #444;
+  height: 30px;
+}
+
+input:focus {
+  outline: none;
+  padding-left: 10px;
+}
+
+.relative {
+  position: relative;
+}
+
+#firstname:focus + span::after {
+  -webkit-transform: translatey(-20px) translateX(-5px);
+          transform: translatey(-20px) translateX(-5px);
+  font-size: 13px;
+  color: #0019d6;
+}
+
+#firstnameAfter::after {
+  position: absolute;
+  content: 'Firstname...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-transition: font-size 200ms, -webkit-transform 200ms;
+  transition: font-size 200ms, -webkit-transform 200ms;
+  transition: transform 200ms, font-size 200ms;
+  transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
+}
+
+#lastname:focus + span::after {
+  -webkit-transform: translatey(-20px) translateX(-5px);
+          transform: translatey(-20px) translateX(-5px);
+  font-size: 13px;
+  color: #0019d6;
+}
+
+#lastnameAfter::after {
+  position: absolute;
+  content: 'Lastname...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-transition: font-size 200ms, -webkit-transform 200ms;
+  transition: font-size 200ms, -webkit-transform 200ms;
+  transition: transform 200ms, font-size 200ms;
+  transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
+}
+
+#email:focus + span::after {
+  -webkit-transform: translatey(-20px) translateX(-5px);
+          transform: translatey(-20px) translateX(-5px);
+  font-size: 13px;
+  color: #0019d6;
+}
+
+#emailAfter::after {
+  position: absolute;
+  content: 'Email...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-transition: font-size 200ms, -webkit-transform 200ms;
+  transition: font-size 200ms, -webkit-transform 200ms;
+  transition: transform 200ms, font-size 200ms;
+  transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
+}
+
+input:not(:placeholder-shown) + span::after {
+  color: #0019d6;
+  font-size: 13px;
+  -webkit-transform: translatey(-20px) translateX(-5px);
+          transform: translatey(-20px) translateX(-5px);
+}
+
+input:valid {
+  border: 1px solid #0019d6;
+}
+
+.highlight {
+  -webkit-text-decoration: underline 1px solid #0019d6;
+          text-decoration: underline 1px solid #0019d6;
+  color: #0019d6;
+}
+
+#username:focus + span::after {
+  -webkit-transform: translatey(-20px) translateX(-5px);
+          transform: translatey(-20px) translateX(-5px);
+  font-size: 13px;
+  color: #0019d6;
+}
+
+#usernameAfter::after {
+  position: absolute;
+  content: 'Username...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-transition: font-size 200ms, -webkit-transform 200ms;
+  transition: font-size 200ms, -webkit-transform 200ms;
+  transition: transform 200ms, font-size 200ms;
+  transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
+}
+
+#password:focus + span::after {
+  -webkit-transform: translatey(-20px) translateX(-5px);
+          transform: translatey(-20px) translateX(-5px);
+  font-size: 13px;
+  color: #0019d6;
+}
+
+#passwordAfter::after {
+  position: absolute;
+  content: 'Password...';
+  top: 22;
+  left: 8;
+  color: gray;
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-transition: font-size 200ms, -webkit-transform 200ms;
+  transition: font-size 200ms, -webkit-transform 200ms;
+  transition: transform 200ms, font-size 200ms;
+  transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
 }
 /*# sourceMappingURL=main.css.map */
