@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta
+  name="description"           
+  content="All the questions are visible here">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
     <title>ASW FAQ</title>
   </head>
@@ -27,16 +30,34 @@
     <!-- End of navigation -->
 
     <!-- Flex container for the search box -->
-    <div class="SearchBox">
+    <div class="parentContainer">
+
       <form novalidate class="SearchBoxForm" action="#">
     <div class="InputParent">
       <input  onsubmit="GrabValue()" placeholder=" " required list="askedQuestionsList" id="askedQuestions" name="askedQuestions" autocomplete="off" /> 
       <span></span>
     </div>
     <button  class="searchBoxButton" >Search</button> 
+    <div style="width: 100%;">
+      <h2 >Filter by <img id="arrow" onclick="openFilters()" class="arrow" src="arrow.svg"></img></h2>
+    </div>
+    <div id="filters" class="filters">
+    
+      <input type="checkbox" id="CompsciSL1" name="CompsciSL1">
+      <label for="CompsciSL1">Compsci SL year 1</label>
+      <input type="checkbox" id="CompsciHL1" name="CompsciHL1">
+      <label for="CompsciHL1">Compsci HL year 1</label>
+      <input type="checkbox" id="CompsciSL2" name="CompsciSL2">
+      <label for="CompsciSL2">Compsci SL year 2</label>
+      <input type="checkbox" id="CompsciHL2" name="CompsciHL2">
+      <label for="CompsciHL2">Compsci HL year 2</label>
+
+    </div>
+
+   
+
 
   </form>
-  <!-- <div class="expandCategory" id="expand">Sort by </div>  -->
 </div>
       <datalist  id="askedQuestionsList">
         <option value="Some topic">
@@ -81,23 +102,33 @@
   <!-- Not sure how you do this in PHP but in react id map with div with a unique ID -->
   <div id="variable1" class="Answer">Answer</div>
 </div>
+
+
   <div class="FaqContainer"> 
+    <a href="QuestionPage.html">
   <div class="Question">
-    <h2>Question: Question from DB 2</h2>
-    <!-- This function parameter would have the unique ID -->
-    <svg height="512pt"  class="plusSVG"  id="variable2plus" onclick="ToggleOpen('variable2')"  on viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m256 512c-141.164062 0-256-114.835938-256-256s114.835938-256 256-256 256 114.835938 256 256-114.835938 256-256 256zm0-480c-123.519531 0-224 100.480469-224 224s100.480469 224 224 224 224-100.480469 224-224-100.480469-224-224-224zm0 0"/><path d="m368 272h-224c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h224c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m256 384c-8.832031 0-16-7.167969-16-16v-224c0-8.832031 7.167969-16 16-16s16 7.167969 16 16v224c0 8.832031-7.167969 16-16 16zm0 0"/></svg>
+    <h2 class="questionDetails">Question: How do I get to Mr. MacKenty's comp sci class?</h2>
+    <div class="postDetails"> 
+    <p>By: username</p>
+    <p>At 12/1/2021 07:52</p>
+    <p>Tags: <span class="tag">Comp sci HL year 1</span> <span class="tag">Mr MacKenty</span> <span class="tag">Locations</span></p>
   </div>
-  <!-- Not sure how you do this in PHP but in react id map with div with a unique ID -->
-  <div id="variable2" class="Answer">Answer</div>
+  </div>
 </div>
 
-
+</a>
 
 </div>
 
 
   
   <script>
+    function openFilters() {
+      var arrow = document.getElementById("arrow");
+      var filters = document.getElementById("filters");
+      arrow.classList.toggle("opened");
+      filters.classList.toggle("opened");
+    }
     function GrabValue() {
       var searchTerm = document.getElementById("askedQuestions").value;
       console.log(searchTerm);

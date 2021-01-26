@@ -116,27 +116,13 @@ nav .navItems a {
   font-family: 'Lato', sans-serif;
 }
 
-.SearchBox {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.SearchBox h1 {
+h1 {
   padding-right: 1vw;
   color: black;
 }
 
-.SearchBox #askedQuestions {
-  height: 5vh;
+#askedQuestions {
+  height: 50px;
   width: 39vw;
   font-size: 100%;
   border-radius: 5px;
@@ -145,22 +131,23 @@ nav .navItems a {
   padding-left: 10px;
 }
 
-.SearchBox #askedQuestions:focus {
+#askedQuestions:focus {
   outline: none;
   border: 1px solid #0019d6;
   padding-left: 10px;
 }
 
-.SearchBox .InputParent {
+.InputParent {
   z-index: 1;
   position: relative;
+  width: 60%;
 }
 
-.SearchBox .InputParent span::after {
+.InputParent span::after {
   position: absolute;
   content: 'Search for...';
   left: 10;
-  top: 10;
+  top: 15;
   color: gray;
   opacity: 0.5;
   pointer-events: none;
@@ -170,21 +157,21 @@ nav .navItems a {
   transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
 }
 
-.SearchBox .InputParent #askedQuestions:focus + span::after {
+.InputParent #askedQuestions:focus + span::after {
   -webkit-transform: translatey(-30px) translateX(-10px);
           transform: translatey(-30px) translateX(-10px);
   font-size: 13px;
   color: #0019d6;
 }
 
-.SearchBox .InputParent input:not(:placeholder-shown) + span::after {
+.InputParent input:not(:placeholder-shown) + span::after {
   color: #0019d6;
   font-size: 13px;
   -webkit-transform: translatey(-30px) translateX(-10px);
           transform: translatey(-30px) translateX(-10px);
 }
 
-.SearchBox .InputParent input:not(:placeholder-shown) {
+.InputParent input:not(:placeholder-shown) {
   border: 1px solid #0019d6;
   font-size: 13px;
 }
@@ -214,17 +201,21 @@ datalist {
       flex-wrap: wrap;
 }
 
-.FaqContainer:hover h2 {
-  -webkit-text-decoration: underline #0019d6 2px;
-          text-decoration: underline #0019d6 2px;
+.FaqContainer:hover {
+  cursor: pointer;
 }
 
 .FaqContainer {
   border-radius: 10px;
   border: 2px solid black;
   margin-bottom: 2vh;
-  width: 50%;
+  width: 60%;
   padding: 10px;
+}
+
+.FaqContainer a {
+  color: black;
+  text-decoration: none;
 }
 
 .FaqContainer .Question {
@@ -284,13 +275,21 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 50%;
+  padding-top: 5vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 60%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .searchBoxButton {
   margin-left: 10px;
   background-color: transparent;
-  width: 150px;
   border: 2px solid #0019d6;
   border-radius: 5px;
   -webkit-transition: 200ms;
@@ -320,8 +319,9 @@ button:hover {
 }
 
 .showResults {
-  width: 50%;
+  width: 60%;
   padding-bottom: 5px;
+  text-align: left;
 }
 
 .paddingTop {
@@ -487,7 +487,7 @@ input:valid {
   transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
 }
 
-.approveUsers {
+.tableContainer {
   border: 2px solid #0019d6;
   width: 90%;
   height: 50vh;
@@ -526,5 +526,58 @@ tr button {
 .deny:hover {
   background-color: red;
   color: white;
+}
+
+.questionDetails {
+  width: 80%;
+}
+
+.tag {
+  background-color: #0019d6;
+  color: white;
+  border-radius: 15px;
+  padding: 2px;
+  margin: 3px 0px 3px 0px;
+  white-space: nowrap;
+  width: auto;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background-color: #0a27ff;
+}
+
+.postDetails {
+  text-align: right;
+  width: 20%;
+}
+
+.arrow {
+  height: 25px;
+  width: 25px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  cursor: pointer;
+  -webkit-transition: 100ms -webkit-transform;
+  transition: 100ms -webkit-transform;
+  transition: 100ms transform;
+  transition: 100ms transform, 100ms -webkit-transform;
+}
+
+.arrow.opened {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.filters {
+  height: 0px;
+  opacity: 0;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.filters.opened {
+  padding-bottom: 20px;
+  opacity: 1;
 }
 /*# sourceMappingURL=main.css.map */

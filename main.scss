@@ -92,62 +92,57 @@ nav {
   font-family: 'Lato', sans-serif;
 }
 
-.SearchBox {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h1 {
-    padding-right: 1vw;
-    color: black;
-  }
-  #askedQuestions {
-    height: 5vh;
-    width: 39vw;
-    font-size: 100%;
-    border-radius: 5px;
-    border: 1px solid $primaryColor;
-    font-family: 'Lato', sans-serif;
-    padding-left: 10px;
-  }
+h1 {
+  padding-right: 1vw;
+  color: black;
+}
+#askedQuestions {
+  height: 50px;
+  width: 39vw;
+  font-size: 100%;
+  border-radius: 5px;
+  border: 1px solid $primaryColor;
+  font-family: 'Lato', sans-serif;
+  padding-left: 10px;
+}
 
-  #askedQuestions:focus {
-    outline: none;
+#askedQuestions:focus {
+  outline: none;
 
+  border: 1px solid $backgroundColor;
+  padding-left: 10px;
+}
+.InputParent {
+  z-index: 1;
+  position: relative;
+  width: 60%;
+  span::after {
+    position: absolute;
+    content: 'Search for...';
+    left: 10;
+    top: 15;
+    color: gray;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: transform 200ms, font-size 200ms;
+  }
+  #askedQuestions:focus + span::after {
+    transform: translatey(-30px) translateX(-10px);
+
+    font-size: 13px;
+    color: $backgroundColor;
+  }
+  input:not(:placeholder-shown) + span::after {
+    color: $backgroundColor;
+    font-size: 13px;
+    transform: translatey(-30px) translateX(-10px);
+  }
+  input:not(:placeholder-shown) {
     border: 1px solid $backgroundColor;
-    padding-left: 10px;
-  }
-  .InputParent {
-    z-index: 1;
-    position: relative;
-    span::after {
-      position: absolute;
-      content: 'Search for...';
-      left: 10;
-      top: 10;
-      color: gray;
-      opacity: 0.5;
-      pointer-events: none;
-      transition: transform 200ms, font-size 200ms;
-    }
-    #askedQuestions:focus + span::after {
-      transform: translatey(-30px) translateX(-10px);
-
-      font-size: 13px;
-      color: $backgroundColor;
-    }
-    input:not(:placeholder-shown) + span::after {
-      color: $backgroundColor;
-      font-size: 13px;
-      transform: translatey(-30px) translateX(-10px);
-    }
-    input:not(:placeholder-shown) {
-      border: 1px solid $backgroundColor;
-      font-size: 13px;
-    }
+    font-size: 13px;
   }
 }
+
 datalist {
   width: 20vw;
 }
@@ -163,16 +158,18 @@ datalist {
   flex-wrap: wrap;
 }
 .FaqContainer:hover {
-  h2 {
-    text-decoration: underline $backgroundColor 2px;
-  }
+  cursor: pointer;
 }
 .FaqContainer {
   border-radius: 10px;
   border: 2px solid black;
   margin-bottom: 2vh;
-  width: 50%;
+  width: 60%;
   padding: 10px;
+  a {
+    color: black;
+    text-decoration: none;
+  }
   .Question {
     display: flex;
     justify-content: space-between;
@@ -207,12 +204,16 @@ body {
 }
 .SearchBoxForm {
   display: flex;
-  width: 50%;
+  padding-top: 5vh;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  flex-wrap: wrap;
 }
 .searchBoxButton {
   margin-left: 10px;
   background-color: transparent;
-  width: 150px;
+
   border: 2px solid $backgroundColor;
   border-radius: 5px;
   transition: 200ms;
@@ -236,8 +237,9 @@ button:hover {
   color: white;
 }
 .showResults {
-  width: 50%;
+  width: 60%;
   padding-bottom: 5px;
+  text-align: left;
 }
 .paddingTop {
   padding-top: 10vh;
@@ -363,7 +365,7 @@ input:valid {
   pointer-events: none;
   transition: transform 200ms, font-size 200ms;
 }
-.approveUsers {
+.tableContainer {
   border: 2px solid $backgroundColor;
   width: 90%;
   height: 50vh;
@@ -396,4 +398,43 @@ tr {
 .deny:hover {
   background-color: red;
   color: white;
+}
+.questionDetails {
+  width: 80%;
+}
+.tag {
+  background-color: $backgroundColor;
+  color: white;
+  border-radius: 15px;
+  padding: 2px;
+  margin: 3px 0px 3px 0px;
+  white-space: nowrap;
+  width: auto;
+  cursor: pointer;
+}
+.tag:hover {
+  background-color: lighten($backgroundColor, 10%);
+}
+.postDetails {
+  text-align: right;
+  width: 20%;
+}
+.arrow {
+  height: 25px;
+  width: 25px;
+  transform: rotate(90deg);
+  cursor: pointer;
+  transition: 100ms transform;
+}
+.arrow.opened {
+  transform: rotate(270deg);
+}
+.filters {
+  height: 0px;
+  opacity: 0;
+  transition: 200ms;
+}
+.filters.opened {
+  padding-bottom: 20px;
+  opacity: 1;
 }
